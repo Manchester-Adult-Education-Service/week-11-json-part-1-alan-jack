@@ -51,7 +51,9 @@ import json  # We need this tool to read the external file
 #
 # Write your code below:
 
-
+with open ("books.json", "r") as file:
+    library = json.load(file)
+    print(library)
 
 
 # -------------------------------------------
@@ -88,7 +90,40 @@ import json  # We need this tool to read the external file
 #
 # Write your code below:
 # NOTE: This loop will become the "home" for all your future code!
+choice = "0"
 
+while choice != "3":
+    print ("---BOOK INVENTORY---")
+    print ("1. View ALL Books")
+    print ("2. Search for Books")
+    print ("3. Exit")
+    choice = input("Enter for your choice")
+    if choice == "1":
+        for book in library:
+            print("")
+            print(f"Book Title: {book["title"]}")
+            print(f"Book Author: {book["author"]}")
+            print(f"Book stock: {book["stock"]}")
+    elif choice == "2":
+        Searchterm = input("Enter book title to find:").lower()
+        found = False
+        for book in library:
+            if Searchterm == book["title"].lower():
+                found = True
+                print("")
+                print(f"Book Title: {book["title"]}")
+                print(f"Book Author: {book["author"]}")
+                print(f"Book stock: {book["stock"]}")
+        if found == False:
+            print("Book not found")
+    elif choice == "3":
+        print("Goodbye!")
+    else:
+        print("Invalid choice")
+    
+
+
+    
 
 
 
