@@ -98,6 +98,12 @@ while choice != "3":
     print ("2. Search for Books")
     print ("3. Exit")
     choice = input("Enter for your choice")
+    if choice == "1":
+        for book in library:
+            print("")
+            print(f"Book Title: {book["title"]}")
+            print(f"Book Author: {book["author"]}")
+            print(f"Book stock: {book["stock"]}")
     if choice == "3":
         print("Goodbye!")
     else:
